@@ -1,0 +1,413 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WebCraft Website Package",
+  "description": "Canonical content package consumed by the WebCraft Studio fixed-template compiler.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "siteMeta",
+    "business",
+    "contact",
+    "navigation",
+    "hero"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "5.0"
+    },
+    "siteMeta": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "description"
+      ]
+    },
+    "business": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "tagline": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "therapist": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "phone": {
+          "type": "string"
+        },
+        "whatsapp": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "socials": {
+          "type": "object",
+          "properties": {
+            "facebook": {
+              "type": "string"
+            },
+            "instagram": {
+              "type": "string"
+            },
+            "tiktok": {
+              "type": "string"
+            },
+            "linkedin": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "navigation": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "hours": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "days": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "day": {
+                "type": "string"
+              },
+              "hours": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "hero": {
+      "type": "object",
+      "properties": {
+        "eyebrow": {
+          "type": "string"
+        },
+        "headline": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "buttonText": {
+          "type": "string"
+        },
+        "video": {
+          "type": "string"
+        },
+        "videoPoster": {
+          "type": "string"
+        }
+      }
+    },
+    "highlights": {
+      "type": "object",
+      "properties": {
+        "eyebrow": {
+          "type": "string"
+        },
+        "heading": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "buttonText": {
+          "type": "string"
+        },
+        "cards": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "beautyServices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "packages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "pricingSection": {
+      "type": "object",
+      "properties": {
+        "eyebrow": {
+          "type": "string"
+        },
+        "heading": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "imageTitle": {
+          "type": "string"
+        },
+        "ctaText": {
+          "type": "string"
+        }
+      }
+    },
+    "pricingHighlights": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "trust": {
+      "type": "object",
+      "properties": {
+        "heading": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "callout": {
+      "type": "object",
+      "properties": {
+        "eyebrow": {
+          "type": "string"
+        },
+        "heading": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "hoursHeading": {
+          "type": "string"
+        },
+        "hoursText": {
+          "type": "string"
+        },
+        "primaryAction": {
+          "type": "string"
+        },
+        "secondaryAction": {
+          "type": "string"
+        },
+        "retreatEyebrow": {
+          "type": "string"
+        },
+        "retreatHeading": {
+          "type": "string"
+        },
+        "retreatButton": {
+          "type": "string"
+        },
+        "healingEyebrow": {
+          "type": "string"
+        },
+        "healingHeading": {
+          "type": "string"
+        }
+      }
+    },
+    "blog": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "eyebrow": {
+          "type": "string"
+        },
+        "heading": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "buttonText": {
+          "type": "string"
+        },
+        "articles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "products": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "eyebrow": {
+          "type": "string"
+        },
+        "heading": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "buttonText": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "booking": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "heading": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "whatsappBooking": {
+          "type": "boolean"
+        },
+        "whatsappNumber": {
+          "type": "string"
+        },
+        "calloutFee": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      }
+    },
+    "cart": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "whatsappNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "footer": {
+      "type": "object",
+      "properties": {
+        "about": {
+          "type": "string"
+        },
+        "aboutHeading": {
+          "type": "string"
+        },
+        "hoursHeading": {
+          "type": "string"
+        },
+        "contactHeading": {
+          "type": "string"
+        },
+        "newsletterText": {
+          "type": "string"
+        },
+        "newsletterHeading": {
+          "type": "string"
+        },
+        "newsletterButton": {
+          "type": "string"
+        },
+        "therapistName": {
+          "type": "string"
+        },
+        "legal": {
+          "type": "object",
+          "properties": {
+            "privacyText": {
+              "type": "string"
+            },
+            "privacyUrl": {
+              "type": "string"
+            },
+            "termsText": {
+              "type": "string"
+            },
+            "termsUrl": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
