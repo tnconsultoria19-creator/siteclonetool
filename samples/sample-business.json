@@ -7,9 +7,9 @@
   "business": {
     "name": "Traditional Thai Massage",
     "shortName": "THAI MASSAGE",
-    "category": "Thai Massage",
+    "category": "Traditional Thai Massage",
     "tagline": "Your Wellness, Our Passion",
-    "description": "Traditional Thai massage and wellness treatments in Gordon's Bay.",
+    "description": "Traditional Thai massage and relaxation treatments in Gordon's Bay.",
     "therapist": "",
     "currency": "R"
   },
@@ -40,8 +40,8 @@
   },
   "hero": {
     "eyebrow": "SEPTEMBER SPECIAL 2026",
-    "headline": "RELAX, REJUVENATE, YOU DESERVE IT",
-    "description": "Treat yourself today with a relaxing massage and wellness experience.",
+    "headline": "RELAX • REJUVENATE • YOU DESERVE IT",
+    "description": "Treat yourself today with a relaxing Thai oil massage and wellness experience.",
     "buttonText": "BOOK TODAY",
     "video": "",
     "videoPoster": ""
@@ -49,20 +49,20 @@
   "highlights": {
     "eyebrow": "SEPTEMBER SPECIAL 2026",
     "heading": "TREAT YOURSELF TODAY",
-    "description": "Special massage and self-care combinations available during September 2026.",
+    "description": "Special massage and self-care combinations available during the September promotion.",
     "cards": [
       {
-        "scriptTag": "SEPTEMBER SPECIAL",
+        "scriptTag": "September Special",
         "title": "THAI OIL MASSAGE + PEDICURE",
         "buttonText": "BOOK",
-        "description": "Thai Oil Massage for 45 minutes plus a pedicure. Together, only R650.",
+        "description": "Thai Oil Massage 45 min plus pedicure — R650.",
         "image": ""
       },
       {
-        "scriptTag": "SEPTEMBER SPECIAL",
+        "scriptTag": "September Special",
         "title": "FULL BODY SCRUB + THAI OIL MASSAGE",
         "buttonText": "BOOK",
-        "description": "Full Body Scrub plus Thai Oil Massage for 45 minutes. Only R950.",
+        "description": "Full Body Scrub plus Thai Oil Massage 45 min — R950.",
         "image": ""
       }
     ]
@@ -72,14 +72,14 @@
       "id": "s1",
       "name": "THAI OIL MASSAGE + PEDICURE",
       "title": "THAI OIL MASSAGE + PEDICURE",
-      "description": "Thai Oil Massage for 45 minutes together with a pedicure.",
+      "description": "Thai Oil Massage 45 min together with a pedicure.",
       "price": 650
     },
     {
       "id": "s2",
       "name": "FULL BODY SCRUB + THAI OIL MASSAGE",
       "title": "FULL BODY SCRUB + THAI OIL MASSAGE",
-      "description": "Full Body Scrub together with a Thai Oil Massage for 45 minutes.",
+      "description": "Full Body Scrub together with Thai Oil Massage 45 min.",
       "price": 950
     }
   ],
@@ -95,7 +95,7 @@
         "Thai Oil Massage",
         "Pedicure"
       ],
-      "description": "Thai Oil Massage for 45 minutes plus a pedicure."
+      "description": "Thai Oil Massage 45 min together with a pedicure."
     },
     {
       "id": "p2",
@@ -107,73 +107,54 @@
         "Full Body Scrub",
         "Thai Oil Massage"
       ],
-      "description": "Full Body Scrub plus Thai Oil Massage for 45 minutes."
+      "description": "Full Body Scrub together with Thai Oil Massage 45 min."
     }
   ],
   "pricingSection": {
     "eyebrow": "SEPTEMBER SPECIAL 2026",
     "heading": "SPECIAL TREATMENTS & PRICING",
-    "description": "Relax, rejuvenate and enjoy these September special combinations.",
-    "imageTitle": "Your Wellness, Our Passion",
+    "description": "Treat yourself to the September massage and wellness specials.",
+    "imageTitle": "RELAX • REJUVENATE • YOU DESERVE IT",
     "ctaText": "BOOK TODAY"
   },
   "pricingHighlights": [
     {
       "title": "RELAX",
-      "description": "Take time to slow down and enjoy your treatment."
+      "description": "Take time to unwind with a Thai oil massage."
     },
     {
       "title": "REJUVENATE",
-      "description": "Treat yourself to a dedicated wellness experience."
+      "description": "Refresh your body with a dedicated self-care experience."
     },
     {
       "title": "INDULGE",
-      "description": "Enjoy a special combination designed for self-care."
+      "description": "Combine treatments for a complete relaxation experience."
     }
   ],
   "trust": {
     "heading": "YOUR WELLNESS, OUR PASSION",
-    "description": "Traditional Thai massage and self-care experiences in Gordon's Bay."
+    "description": "Traditional Thai massage and relaxation experiences in Gordon's Bay."
   },
   "callout": {
     "eyebrow": "VISIT US",
-    "heading": "RELAX • REJUVENATE • INDULGE",
-    "description": "Book your September special and enjoy a dedicated relaxation experience.",
+    "heading": "TRADITIONAL THAI MASSAGE",
+    "description": "Book your next relaxation experience in Mountainside, Gordon's Bay.",
     "location": "18 Sir Lowry's Pass Rd, Mountainside, Gordon's Bay",
-    "hoursHeading": "September Special",
+    "hoursHeading": "Promotion",
     "hoursText": "September Special 2026",
     "primaryAction": "BOOK TODAY",
     "secondaryAction": "CONTACT US",
-    "retreatEyebrow": "Traditional Thai Massage",
-    "retreatHeading": "YOUR WELLNESS, OUR PASSION",
-    "healingEyebrow": "SELF-CARE",
-    "healingHeading": "TREAT YOURSELF TODAY"
+    "retreatEyebrow": "RELAX • REJUVENATE",
+    "retreatHeading": "YOU DESERVE IT",
+    "healingEyebrow": "TRADITIONAL THAI MASSAGE",
+    "healingHeading": "YOUR WELLNESS, OUR PASSION"
   },
   "blog": {
-    "enabled": true,
-    "eyebrow": "WELLNESS & SELF-CARE",
-    "heading": "MASSAGE & WELLNESS",
-    "description": "Ideas and information around relaxation, massage and self-care.",
-    "articles": [
-      {
-        "id": 1,
-        "category": "MASSAGE",
-        "title": "THE BENEFITS OF MAKING TIME FOR MASSAGE",
-        "dateAuthor": "Traditional Thai Massage"
-      },
-      {
-        "id": 2,
-        "category": "SELF-CARE",
-        "title": "CREATING A REGULAR SELF-CARE ROUTINE",
-        "dateAuthor": "Traditional Thai Massage"
-      },
-      {
-        "id": 3,
-        "category": "WELLNESS",
-        "title": "RELAX, REJUVENATE AND RECONNECT",
-        "dateAuthor": "Traditional Thai Massage"
-      }
-    ]
+    "enabled": false,
+    "eyebrow": "",
+    "heading": "",
+    "description": "",
+    "articles": []
   },
   "products": {
     "enabled": false,
@@ -185,7 +166,7 @@
   "booking": {
     "enabled": true,
     "heading": "BOOK AN APPOINTMENT",
-    "description": "Book your massage or September special by contacting Traditional Thai Massage.",
+    "description": "Book your September special with Traditional Thai Massage.",
     "whatsappBooking": true,
     "whatsappNumber": "27614514389",
     "calloutFee": null
@@ -195,11 +176,11 @@
     "whatsappNumber": "27614514389"
   },
   "footer": {
-    "about": "Traditional Thai Massage — Your Wellness, Our Passion. Relax and rejuvenate in Gordon's Bay.",
-    "hoursHeading": "SEPTEMBER SPECIAL",
+    "about": "Traditional Thai Massage in Gordon's Bay. Your Wellness, Our Passion.",
+    "hoursHeading": "PROMOTION",
     "contactHeading": "CONTACTS",
-    "newsletterText": "Stay connected for wellness updates and special offers.",
-    "newsletterHeading": "NEWSLETTER & UPDATES",
+    "newsletterText": "",
+    "newsletterHeading": "",
     "therapistName": "",
     "legal": {
       "privacyText": "Privacy Policy",
