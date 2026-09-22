@@ -1,24 +1,24 @@
 {
   "schemaVersion": "5.0",
   "siteMeta": {
-    "title": "Lukhoo Beauty Spa | Nigel",
-    "description": "Relax, rejuvenate and reconnect with massage and wellness treatments at Lukhoo Beauty Spa in Nigel."
+    "title": "Traditional Thai Massage | Gordon's Bay",
+    "description": "Traditional Thai massage and wellness treatments in Gordon's Bay."
   },
   "business": {
-    "name": "Lukhoo Beauty Spa",
-    "shortName": "LUKHOO",
-    "category": "Beauty Spa",
-    "tagline": "Relax • Rejuvenate • Reconnect",
-    "description": "A beauty and wellness spa offering massage treatments and special wellness experiences in Nigel.",
+    "name": "Traditional Thai Massage",
+    "shortName": "THAI MASSAGE",
+    "category": "Thai Massage",
+    "tagline": "Your Wellness, Our Passion",
+    "description": "Traditional Thai massage and wellness treatments in Gordon's Bay.",
     "therapist": "",
     "currency": "R"
   },
   "contact": {
-    "phone": "079 373 1376",
-    "whatsapp": "27793731376",
+    "phone": "061 451 4389",
+    "whatsapp": "27614514389",
     "email": "",
-    "address": "25 Springs Road 1491, Sasol and Fisherways Building",
-    "city": "Nigel",
+    "address": "18 Sir Lowry's Pass Rd, Mountainside",
+    "city": "Gordon's Bay",
     "socials": {
       "facebook": "",
       "instagram": "",
@@ -39,37 +39,30 @@
     "days": []
   },
   "hero": {
-    "eyebrow": "RELAX • REJUVENATE • RECONNECT",
-    "headline": "LUKHOO BEAUTY SPA",
-    "description": "Your wellness is our passion. Explore massage experiences designed for relaxation, rejuvenation and reconnection.",
-    "buttonText": "BOOK AN APPOINTMENT",
+    "eyebrow": "SEPTEMBER SPECIAL 2026",
+    "headline": "RELAX, REJUVENATE, YOU DESERVE IT",
+    "description": "Treat yourself today with a relaxing massage and wellness experience.",
+    "buttonText": "BOOK TODAY",
     "video": "",
     "videoPoster": ""
   },
   "highlights": {
-    "eyebrow": "SPECIAL OFFERS",
-    "heading": "TREAT YOURSELF TO WELLNESS",
-    "description": "Explore current massage specials and wellness experiences at Lukhoo Beauty Spa.",
+    "eyebrow": "SEPTEMBER SPECIAL 2026",
+    "heading": "TREAT YOURSELF TODAY",
+    "description": "Special massage and self-care combinations available during September 2026.",
     "cards": [
       {
-        "scriptTag": "Heritage Day Special",
-        "title": "FULL BODY MASSAGE — 40 MIN",
-        "buttonText": "BOOK NOW",
-        "description": "Heritage Day special: full body massage for 40 minutes at R121. Valid 21st–25th September.",
+        "scriptTag": "SEPTEMBER SPECIAL",
+        "title": "THAI OIL MASSAGE + PEDICURE",
+        "buttonText": "BOOK",
+        "description": "Thai Oil Massage for 45 minutes plus a pedicure. Together, only R650.",
         "image": ""
       },
       {
-        "scriptTag": "Couples Experience",
-        "title": "HOT STONE FULL BODY MASSAGE",
-        "buttonText": "BOOK NOW",
-        "description": "Hot Stone Full Body Massage for 2 at R380, with the promotion valid until 30 September 2026.",
-        "image": ""
-      },
-      {
-        "scriptTag": "Wellness",
-        "title": "RELAX • REJUVENATE • RECONNECT",
-        "buttonText": "CONTACT US",
-        "description": "Discover a wellness experience built around relaxation, care and personal attention.",
+        "scriptTag": "SEPTEMBER SPECIAL",
+        "title": "FULL BODY SCRUB + THAI OIL MASSAGE",
+        "buttonText": "BOOK",
+        "description": "Full Body Scrub plus Thai Oil Massage for 45 minutes. Only R950.",
         "image": ""
       }
     ]
@@ -77,39 +70,52 @@
   "services": [
     {
       "id": "s1",
-      "name": "FULL BODY MASSAGE",
-      "title": "FULL BODY MASSAGE",
-      "description": "A full body massage experience offered as part of the Heritage Day special.",
-      "price": 121
+      "name": "THAI OIL MASSAGE + PEDICURE",
+      "title": "THAI OIL MASSAGE + PEDICURE",
+      "description": "Thai Oil Massage for 45 minutes together with a pedicure.",
+      "price": 650
     },
     {
       "id": "s2",
-      "name": "HOT STONE FULL BODY MASSAGE",
-      "title": "HOT STONE FULL BODY MASSAGE",
-      "description": "Hot Stone Full Body Massage experience for two.",
-      "price": 380
+      "name": "FULL BODY SCRUB + THAI OIL MASSAGE",
+      "title": "FULL BODY SCRUB + THAI OIL MASSAGE",
+      "description": "Full Body Scrub together with a Thai Oil Massage for 45 minutes.",
+      "price": 950
     }
   ],
   "beautyServices": [],
   "packages": [
     {
       "id": "p1",
-      "title": "HOT STONE MASSAGE FOR 2",
-      "duration": "",
-      "price": 380,
+      "title": "THAI OIL MASSAGE + PEDICURE",
+      "duration": "45 min massage",
+      "price": 650,
       "recommended": true,
       "services": [
-        "Hot Stone Full Body Massage"
+        "Thai Oil Massage",
+        "Pedicure"
       ],
-      "description": "A Hot Stone Full Body Massage experience for two."
+      "description": "Thai Oil Massage for 45 minutes plus a pedicure."
+    },
+    {
+      "id": "p2",
+      "title": "FULL BODY SCRUB + THAI OIL MASSAGE",
+      "duration": "45 min massage",
+      "price": 950,
+      "recommended": false,
+      "services": [
+        "Full Body Scrub",
+        "Thai Oil Massage"
+      ],
+      "description": "Full Body Scrub plus Thai Oil Massage for 45 minutes."
     }
   ],
   "pricingSection": {
-    "eyebrow": "CURRENT SPECIALS",
-    "heading": "TREATMENTS & SPECIAL PRICING",
-    "description": "View the current massage promotions available at Lukhoo Beauty Spa.",
-    "imageTitle": "Relax • Rejuvenate • Reconnect",
-    "ctaText": "BOOK YOUR SESSION"
+    "eyebrow": "SEPTEMBER SPECIAL 2026",
+    "heading": "SPECIAL TREATMENTS & PRICING",
+    "description": "Relax, rejuvenate and enjoy these September special combinations.",
+    "imageTitle": "Your Wellness, Our Passion",
+    "ctaText": "BOOK TODAY"
   },
   "pricingHighlights": [
     {
@@ -118,54 +124,54 @@
     },
     {
       "title": "REJUVENATE",
-      "description": "Create space for rest and personal wellbeing."
+      "description": "Treat yourself to a dedicated wellness experience."
     },
     {
-      "title": "RECONNECT",
-      "description": "Make wellness part of your self-care routine."
+      "title": "INDULGE",
+      "description": "Enjoy a special combination designed for self-care."
     }
   ],
   "trust": {
-    "heading": "YOUR WELLNESS IS OUR PASSION",
-    "description": "Lukhoo Beauty Spa brings together massage and wellness experiences designed around relaxation and self-care."
+    "heading": "YOUR WELLNESS, OUR PASSION",
+    "description": "Traditional Thai massage and self-care experiences in Gordon's Bay."
   },
   "callout": {
-    "eyebrow": "VISIT LUKHOO BEAUTY SPA",
-    "heading": "RELAX • REJUVENATE • RECONNECT",
-    "description": "Visit the Nigel branch for your next massage and wellness experience.",
-    "location": "25 Springs Road 1491, Sasol and Fisherways Building, Nigel",
-    "hoursHeading": "Promotion Dates",
-    "hoursText": "Heritage Day special: 21st–25th September. Hot Stone special valid until 30 September 2026.",
-    "primaryAction": "BOOK APPOINTMENT",
+    "eyebrow": "VISIT US",
+    "heading": "RELAX • REJUVENATE • INDULGE",
+    "description": "Book your September special and enjoy a dedicated relaxation experience.",
+    "location": "18 Sir Lowry's Pass Rd, Mountainside, Gordon's Bay",
+    "hoursHeading": "September Special",
+    "hoursText": "September Special 2026",
+    "primaryAction": "BOOK TODAY",
     "secondaryAction": "CONTACT US",
-    "retreatEyebrow": "Your Wellness Destination",
-    "retreatHeading": "TREAT YOURSELF",
-    "healingEyebrow": "Wellness",
-    "healingHeading": "YOUR WELLNESS IS OUR PASSION"
+    "retreatEyebrow": "Traditional Thai Massage",
+    "retreatHeading": "YOUR WELLNESS, OUR PASSION",
+    "healingEyebrow": "SELF-CARE",
+    "healingHeading": "TREAT YOURSELF TODAY"
   },
   "blog": {
     "enabled": true,
     "eyebrow": "WELLNESS & SELF-CARE",
-    "heading": "WELLNESS & SELF-CARE",
-    "description": "Explore simple ideas for making relaxation and self-care part of your routine.",
+    "heading": "MASSAGE & WELLNESS",
+    "description": "Ideas and information around relaxation, massage and self-care.",
     "articles": [
       {
         "id": 1,
         "category": "MASSAGE",
-        "title": "MAKING TIME FOR REGULAR SELF-CARE",
-        "dateAuthor": "Lukhoo Beauty Spa"
+        "title": "THE BENEFITS OF MAKING TIME FOR MASSAGE",
+        "dateAuthor": "Traditional Thai Massage"
       },
       {
         "id": 2,
-        "category": "WELLNESS",
-        "title": "WHY RELAXATION MATTERS",
-        "dateAuthor": "Lukhoo Beauty Spa"
+        "category": "SELF-CARE",
+        "title": "CREATING A REGULAR SELF-CARE ROUTINE",
+        "dateAuthor": "Traditional Thai Massage"
       },
       {
         "id": 3,
-        "category": "MASSAGE",
-        "title": "CHOOSING A MASSAGE EXPERIENCE",
-        "dateAuthor": "Lukhoo Beauty Spa"
+        "category": "WELLNESS",
+        "title": "RELAX, REJUVENATE AND RECONNECT",
+        "dateAuthor": "Traditional Thai Massage"
       }
     ]
   },
@@ -179,20 +185,20 @@
   "booking": {
     "enabled": true,
     "heading": "BOOK AN APPOINTMENT",
-    "description": "Contact Lukhoo Beauty Spa to arrange your massage or wellness treatment.",
+    "description": "Book your massage or September special by contacting Traditional Thai Massage.",
     "whatsappBooking": true,
-    "whatsappNumber": "27793731376",
+    "whatsappNumber": "27614514389",
     "calloutFee": null
   },
   "cart": {
     "enabled": false,
-    "whatsappNumber": "27793731376"
+    "whatsappNumber": "27614514389"
   },
   "footer": {
-    "about": "Relax • Rejuvenate • Reconnect. Lukhoo Beauty Spa offers massage and wellness experiences in Nigel.",
-    "hoursHeading": "PROMOTION DATES",
+    "about": "Traditional Thai Massage — Your Wellness, Our Passion. Relax and rejuvenate in Gordon's Bay.",
+    "hoursHeading": "SEPTEMBER SPECIAL",
     "contactHeading": "CONTACTS",
-    "newsletterText": "Stay connected with Lukhoo Beauty Spa for wellness updates and special offers.",
+    "newsletterText": "Stay connected for wellness updates and special offers.",
     "newsletterHeading": "NEWSLETTER & UPDATES",
     "therapistName": "",
     "legal": {
