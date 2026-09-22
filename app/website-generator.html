@@ -114,8 +114,12 @@ function patchTemplate(data){
   let code=decodeTemplate();
   const b=data.business||{}, meta=data.siteMeta||{}, c=data.contact||{}, hero=data.hero||{}, hl=data.highlights||{}, pricingSection=data.pricingSection||{}, trust=data.trust||{}, callout=data.callout||{}, footer=data.footer||{}, booking=data.booking||{}, cart=data.cart||{};
   const name=b.name||'Business Name', category=b.category||'', therapist=b.therapist||footer.therapistName||'';
-  // Navbar identity rule: show the business name once. Use the business tagline as the subtitle; only fall back to category when it does not duplicate the name.
-  const subtitle=(b.tagline||'').trim() || (category && !name.toLowerCase().includes(category.toLowerCase()) ? category : '');
+  // Clean hierarchy: compact brand in the navbar, category as subtitle, and no repeated title/caption in the hero.
+  const brandName=(b.shortName||name).trim();
+  const subtitle=category && !brandName.toLowerCase().includes(category.toLowerCase()) ? category.trim() : '';
+  const heroHeadlineRaw=String(hero.headline||'').trim();
+  const heroHeadline=(heroHeadlineRaw && heroHeadlineRaw.toLowerCase()!==name.toLowerCase() && heroHeadlineRaw.toLowerCase()!==brandName.toLowerCase())
+    ? heroHeadlineRaw : String(b.tagline||category||'').trim();
   const services=arrOr(data.services,[]); const serviceFallback=services.length?services:[{id:'s1',name:'Signature Treatment',description:'A professional treatment tailored to you.'}];
   const features=arrOr(hl.cards,[{scriptTag:'Featured',title:'Signature Treatment',buttonText:'LEARN MORE',description:'A professional experience tailored to you.'},{scriptTag:'Wellness',title:'Relax & Restore',buttonText:'LEARN MORE',description:'Wellness care designed for your comfort.'},{scriptTag:'Beauty Care',title:'Beauty & Self-Care',buttonText:'LEARN MORE',description:'Feel refreshed and cared for.'}]).map((x,i)=>({...x,image:DEFAULT_FEATURE_IMAGES[i%DEFAULT_FEATURE_IMAGES.length]}));
   const blog=arrOr((data.blog||{}).articles,[1,2,3,4].map((id,i)=>({id,category:'WELLNESS',title:['WELLNESS INSIGHTS','SELF-CARE TIPS','HEALTH & BALANCE','TREATMENT GUIDE'][i],dateAuthor:'2026 • '+(therapist||name)}))).map((x,i)=>({...x,id:x.id||i+1,image:DEFAULT_BLOG_IMAGES[i%DEFAULT_BLOG_IMAGES.length]}));
@@ -126,12 +130,12 @@ function patchTemplate(data){
   code=code.replace(/<meta name="description" content="[^"]*"/i,`<meta name="description" content="${escAttr(meta.description||b.description||'')}"`);
 
   code=replaceAllWithin(code,'iM=({onOpenBooking:i})=>','l_=({onOpenBooking:i})=>',[
-    ['"THAI "',q(name)],
+    ['"THAI "',q(brandName)],
     ['children:"MASSAGE"',`children:""`],
     ['children:"TRADITIONAL THAI MASSAGE"',`children:${q(subtitle.toUpperCase())}`]
   ]);
   code=replaceAllWithin(code,'l_=({onOpenBooking:i})=>','s_=({onOpenBooking:i})=>',[
-    ['children:"RELAX, RECHARGE, REFRESH"',`children:${q(String(hero.headline||b.tagline||name).toUpperCase())}`],
+    ['children:"RELAX, RECHARGE, REFRESH"',`children:${q(heroHeadline.toUpperCase())}`],
     ['children:"Treat yourself this August with our special offers. Experience Traditional Thai Massage with therapist Jadene in Gordon\'s Bay. Your Relaxation, Our Passion ♥"',`children:${q(hero.description||b.description||'')}`],
     ['children:"MAKE AN APPOINTMENT"',`children:${q(hero.buttonText||'BOOK AN APPOINTMENT')}`]
   ]);
