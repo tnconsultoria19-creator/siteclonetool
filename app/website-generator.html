@@ -308,7 +308,7 @@ function patchTemplate(data){
   const services=arrOr(data.services,[]); const serviceFallback=services.length?services:[{id:'s1',name:'Signature Treatment',description:'A professional treatment tailored to you.'}];
   const features=arrOr(hl.cards,[{scriptTag:'Featured',title:'Signature Treatment',buttonText:'LEARN MORE',description:'A professional experience tailored to you.'},{scriptTag:'Wellness',title:'Relax & Restore',buttonText:'LEARN MORE',description:'Wellness care designed for your comfort.'},{scriptTag:'Beauty Care',title:'Beauty & Self-Care',buttonText:'LEARN MORE',description:'Feel refreshed and cared for.'}]).map((x,i)=>({...x,image:DEFAULT_FEATURE_IMAGES[i%DEFAULT_FEATURE_IMAGES.length]}));
   const blog=arrOr((data.blog||{}).articles,[1,2,3,4].map((id,i)=>({id,category:'WELLNESS',title:['WELLNESS INSIGHTS','SELF-CARE TIPS','HEALTH & BALANCE','TREATMENT GUIDE'][i],dateAuthor:'2026 • '+(therapist||name)}))).map((x,i)=>({...x,id:x.id||i+1,image:DEFAULT_BLOG_IMAGES[i%DEFAULT_BLOG_IMAGES.length]}));
-  const products=arrOr((data.products||{}).items,[]).map((x,i)=>({...x,id:x.id||i+1,image:x.image||DEFAULT_PRODUCT_IMAGES[i%DEFAULT_PRODUCT_IMAGES.length],price:String(x.price??'Contact for pricing')}));
+  const customProducts=Array.isArray((data.products||{}).items)&&((data.products||{}).items.length>0) ? (data.products||{}).items.map((x,i)=>({...x,id:x.id||i+1,image:x.image||DEFAULT_PRODUCT_IMAGES[i%DEFAULT_PRODUCT_IMAGES.length],price:String(x.price??'Contact for pricing')})) : null;
   const beauty=buildBeauty(data.beautyServices); const packages=buildPackages(data.packages); const massage=buildBookingMassage(serviceFallback); const pricing=arrOr(pricingSection.items, serviceToPricing(serviceFallback));
 
   code=code.replace(/<title>[\s\S]*?<\/title>/i,`<title>${escHtml(meta.title||`${name} | ${category||'Wellness'}`)}</title>`);
@@ -352,7 +352,7 @@ function patchTemplate(data){
     ['children:"Wellness & Self-Care"',`children:${q((data.blog||{}).eyebrow||'Wellness & Self-Care')}`],
     ['children:"THAI MASSAGE & HEALTH INSIGHTS"',`children:${q((data.blog||{}).heading||'WELLNESS & HEALTH INSIGHTS')}`]
   ]);
-  code=patchArray(code,'m_=({onOpenBooking:i})=>','h',products,'json');
+  if(customProducts) code=patchArray(code,'m_=({onOpenBooking:i})=>','h',customProducts,'json');
   code=replaceAllWithin(code,'m_=({onOpenBooking:i})=>','p_=()=>',[
     ['children:"Botanicals & Home Care"',`children:${q((data.products||{}).eyebrow||'Wellness & Home Care')}`],
     ['children:"AUTHENTIC THAI OILS & BALMS"',`children:${q((data.products||{}).heading||'SELF-CARE PRODUCTS')}`]
