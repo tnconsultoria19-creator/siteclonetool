@@ -303,8 +303,102 @@ function detectLocale(data){
   const raw=[c.address,c.city,c.phone,c.whatsapp,c.email,meta.title,meta.description,b.name,b.category,b.tagline,b.description,c.country,b.country,data.source,data.sourceUrl,socials.facebook,socials.instagram,socials.tiktok,socials.linkedin].filter(Boolean).join(' ');
   const phone=String(c.phone||c.whatsapp||'').replace(/[^0-9+]/g,'');
   const rules=[
-    {country:'Namibia',code:'NA',currency:'N{const cur=currency||'R';return services.slice(0,8).map((s,i)=>({name:s.title||s.name||`Service ${i+1}`,detail:`${s.duration||'Session'}${s.price!==undefined&&s.price!==''?' • '+cur+s.price:''}`,badge:s.badge||s.category||'Signature Treatment'}))}
-function buildBookingMassage(services){return services.map((s,i)=>({id:s.id||'m'+(i+1),name:s.name||s.title||'Service',price:Number(s.price)||0,duration:s.duration||'Session',description:s.description||'',category:'massage',popular:!!s.popular}))}
+    {country:'Namibia',code:'NA',currency:'N$',iso:'NAD',tld:'.na',prefix:/^(?:\+?264|00264)/,words:/\b(?:namibia|windhoek|swakopmund|walvis bay|oshakati|rundu|otjiwarongo|grootfontein|keEtmanshoop|namibian)\b/i},
+    {country:'South Africa',code:'ZA',currency:'R',iso:'ZAR',tld:'.co.za',prefix:/^(?:\+?27|0027)/,words:/\b(?:south africa|cape town|johannesburg|pretoria|durban|gauteng|western cape|kwazulu-natal|limpopo|mpumalanga|free state|north west|eastern cape|northern cape|south african|gordon's bay)\b/i},
+    {country:'Botswana',code:'BW',currency:'P',iso:'BWP',tld:'.bw',prefix:/^(?:\+?267|00267)/,words:/\b(?:botswana|gaborone|francistown|maun|botswanan)\b/i},
+    {country:'Lesotho',code:'LS',currency:'L',iso:'LSL',tld:'.ls',prefix:/^(?:\+?266|00266)/,words:/\b(?:lesotho|maseru)\b/i},
+    {country:'Eswatini',code:'SZ',currency:'E',iso:'SZL',tld:'.sz',prefix:/^(?:\+?268|00268)/,words:/\b(?:eswatini|mbabane|manzini|swaziland)\b/i},
+    {country:'Zimbabwe',code:'ZW',currency:'ZiG',iso:'ZWG',tld:'.co.zw',prefix:/^(?:\+?263|00263)/,words:/\b(?:zimbabwe|harare|bulawayo|mutare|gweru|zimbabwean)\b/i},
+    {country:'Zambia',code:'ZM',currency:'K',iso:'ZMW',tld:'.zm',prefix:/^(?:\+?260|00260)/,words:/\b(?:zambia|lusaka|kitwe|ndola|zambian)\b/i},
+    {country:'Malawi',code:'MW',currency:'MK',iso:'MWK',tld:'.mw',prefix:/^(?:\+?265|00265)/,words:/\b(?:malawi|lilongwe|blantyre|mzuzu|malawian)\b/i},
+    {country:'Mozambique',code:'MZ',currency:'MT',iso:'MZN',tld:'.mz',prefix:/^(?:\+?258|00258)/,words:/\b(?:mozambique|maputo|matola|beira|nampula|mozambican)\b/i},
+    {country:'Angola',code:'AO',currency:'Kz',iso:'AOA',tld:'.ao',prefix:/^(?:\+?244|00244)/,words:/\b(?:angola|luanda|huambo|lubango|benguela|angolan)\b/i},
+    {country:'Nigeria',code:'NG',currency:'₦',iso:'NGN',tld:'.ng',prefix:/^(?:\+?234|00234)/,words:/\b(?:nigeria|lagos|abuja|ibadan|nigerian)\b/i},
+    {country:'Ghana',code:'GH',currency:'GH₵',iso:'GHS',tld:'.gh',prefix:/^(?:\+?233|00233)/,words:/\b(?:ghana|accra|kumasi|ghanaian)\b/i},
+    {country:'Kenya',code:'KE',currency:'KSh',iso:'KES',tld:'.ke',prefix:/^(?:\+?254|00254)/,words:/\b(?:kenya|nairobi|mombasa|kenyan)\b/i},
+    {country:'Tanzania',code:'TZ',currency:'TSh',iso:'TZS',tld:'.tz',prefix:/^(?:\+?255|00255)/,words:/\b(?:tanzania|dar es salaam|arusha|tanzanian)\b/i},
+    {country:'Uganda',code:'UG',currency:'USh',iso:'UGX',tld:'.ug',prefix:/^(?:\+?256|00256)/,words:/\b(?:uganda|kampala|jinja|ugandan)\b/i},
+    {country:'Rwanda',code:'RW',currency:'FRw',iso:'RWF',tld:'.rw',prefix:/^(?:\+?250|00250)/,words:/\b(?:rwanda|kigali|rwandan)\b/i},
+    {country:'Mauritius',code:'MU',currency:'Rs',iso:'MUR',tld:'.mu',prefix:/^(?:\+?230|00230)/,words:/\b(?:mauritius|port louis|mauritian)\b/i},
+    {country:'United Kingdom',code:'GB',currency:'£',iso:'GBP',tld:'.co.uk',prefix:/^(?:\+?44|0044)/,words:/\b(?:united kingdom|uk|england|scotland|wales|london|manchester|birmingham|british)\b/i},
+    {country:'Ireland',code:'IE',currency:'€',iso:'EUR',tld:'.ie',prefix:/^(?:\+?353|00353)/,words:/\b(?:ireland|dublin|cork|galway|irish)\b/i},
+    {country:'France',code:'FR',currency:'€',iso:'EUR',tld:'.fr',prefix:/^(?:\+?33|0033)/,words:/\b(?:france|paris|lyon|marseille|french)\b/i},
+    {country:'Germany',code:'DE',currency:'€',iso:'EUR',tld:'.de',prefix:/^(?:\+?49|0049)/,words:/\b(?:germany|berlin|munich|hamburg|german)\b/i},
+    {country:'Portugal',code:'PT',currency:'€',iso:'EUR',tld:'.pt',prefix:/^(?:\+?351|00351)/,words:/\b(?:portugal|lisbon|porto|portuguese)\b/i},
+    {country:'Spain',code:'ES',currency:'€',iso:'EUR',tld:'.es',prefix:/^(?:\+?34|0034)/,words:/\b(?:spain|madrid|barcelona|spanish)\b/i},
+    {country:'Italy',code:'IT',currency:'€',iso:'EUR',tld:'.it',prefix:/^(?:\+?39|0039)/,words:/\b(?:italy|rome|milan|italian)\b/i},
+    {country:'Netherlands',code:'NL',currency:'€',iso:'EUR',tld:'.nl',prefix:/^(?:\+?31|0031)/,words:/\b(?:netherlands|amsterdam|rotterdam|dutch)\b/i},
+    {country:'Switzerland',code:'CH',currency:'CHF',iso:'CHF',tld:'.ch',prefix:/^(?:\+?41|0041)/,words:/\b(?:switzerland|zurich|geneva|swiss)\b/i},
+    {country:'United States',code:'US',currency:'$',iso:'USD',tld:'.com',prefix:null,words:/\b(?:united states|usa|new york|los angeles|california|texas|florida|american)\b/i},
+    {country:'Canada',code:'CA',currency:'C$',iso:'CAD',tld:'.ca',prefix:null,words:/\b(?:canada|toronto|vancouver|montreal|ontario|alberta|canadian)\b/i},
+    {country:'Australia',code:'AU',currency:'A$',iso:'AUD',tld:'.com.au',prefix:/^(?:\+?61|0061)/,words:/\b(?:australia|sydney|melbourne|brisbane|perth|australian)\b/i},
+    {country:'New Zealand',code:'NZ',currency:'NZ$',iso:'NZD',tld:'.nz',prefix:/^(?:\+?64|0064)/,words:/\b(?:new zealand|auckland|wellington|christchurch|new zealander)\b/i},
+    {country:'United Arab Emirates',code:'AE',currency:'AED',iso:'AED',tld:'.ae',prefix:/^(?:\+?971|00971)/,words:/\b(?:united arab emirates|uae|dubai|abu dhabi|emirati)\b/i},
+    {country:'Saudi Arabia',code:'SA',currency:'SAR',iso:'SAR',tld:'.sa',prefix:/^(?:\+?966|00966)/,words:/\b(?:saudi arabia|riyadh|jeddah|saudi)\b/i},
+    {country:'India',code:'IN',currency:'₹',iso:'INR',tld:'.in',prefix:/^(?:\+?91|0091)/,words:/\b(?:india|mumbai|delhi|bangalore|hyderabad|indian)\b/i},
+    {country:'Pakistan',code:'PK',currency:'Rs',iso:'PKR',tld:'.pk',prefix:/^(?:\+?92|0092)/,words:/\b(?:pakistan|karachi|lahore|islamabad|pakistani)\b/i},
+    {country:'Singapore',code:'SG',currency:'S$',iso:'SGD',tld:'.sg',prefix:/^(?:\+?65|0065)/,words:/\b(?:singapore|singaporean)\b/i},
+    {country:'Malaysia',code:'MY',currency:'RM',iso:'MYR',tld:'.my',prefix:/^(?:\+?60|0060)/,words:/\b(?:malaysia|kuala lumpur|penang|malaysian)\b/i},
+    {country:'Thailand',code:'TH',currency:'฿',iso:'THB',tld:'.th',prefix:/^(?:\+?66|0066)/,words:/\b(?:thailand|bangkok|phuket)\b/i},
+    {country:'Philippines',code:'PH',currency:'₱',iso:'PHP',tld:'.ph',prefix:/^(?:\+?63|0063)/,words:/\b(?:philippines|manila|cebu|filipino)\b/i},
+    {country:'Brazil',code:'BR',currency:'R$',iso:'BRL',tld:'.com.br',prefix:/^(?:\+?55|0055)/,words:/\b(?:brazil|são paulo|rio de janeiro|brasil|brazilian)\b/i},
+    {country:'Mexico',code:'MX',currency:'MX$',iso:'MXN',tld:'.mx',prefix:/^(?:\+?52|0052)/,words:/\b(?:mexico|mexico city|guadalajara|mexican)\b/i}
+  ];
+  for(const r of rules) if((r.prefix&&r.prefix.test(phone))||r.words.test(raw)) return r;
+
+  const hints=[
+    {re:/N\$\s*\d/i,country:'Namibia',code:'NA',currency:'N$',iso:'NAD',tld:'.na'},
+    {re:/ZiG\s*\d|\bZWG\b/i,country:'Zimbabwe',code:'ZW',currency:'ZiG',iso:'ZWG',tld:'.co.zw'},
+    {re:/Kz\s*\d/i,country:'Angola',code:'AO',currency:'Kz',iso:'AOA',tld:'.ao'},
+    {re:/₦\s*\d/i,country:'Nigeria',code:'NG',currency:'₦',iso:'NGN',tld:'.ng'},
+    {re:/GH₵\s*\d/i,country:'Ghana',code:'GH',currency:'GH₵',iso:'GHS',tld:'.gh'},
+    {re:/KSh\s*\d/i,country:'Kenya',code:'KE',currency:'KSh',iso:'KES',tld:'.ke'},
+    {re:/TSh\s*\d/i,country:'Tanzania',code:'TZ',currency:'TSh',iso:'TZS',tld:'.tz'},
+    {re:/AED\s*\d/i,country:'United Arab Emirates',code:'AE',currency:'AED',iso:'AED',tld:'.ae'},
+    {re:/SAR\s*\d/i,country:'Saudi Arabia',code:'SA',currency:'SAR',iso:'SAR',tld:'.sa'},
+    {re:/₹\s*\d/i,country:'India',code:'IN',currency:'₹',iso:'INR',tld:'.in'},
+    {re:/RM\s*\d/i,country:'Malaysia',code:'MY',currency:'RM',iso:'MYR',tld:'.my'},
+    {re:/฿\s*\d/i,country:'Thailand',code:'TH',currency:'฿',iso:'THB',tld:'.th'},
+    {re:/₱\s*\d/i,country:'Philippines',code:'PH',currency:'₱',iso:'PHP',tld:'.ph'},
+    {re:/R\$\s*\d/i,country:'Brazil',code:'BR',currency:'R$',iso:'BRL',tld:'.com.br'},
+    {re:/MX\$\s*\d/i,country:'Mexico',code:'MX',currency:'MX$',iso:'MXN',tld:'.mx'},
+    {re:/CHF\s*\d/i,country:'Switzerland',code:'CH',currency:'CHF',iso:'CHF',tld:'.ch'},
+    {re:/A\$\s*\d/i,country:'Australia',code:'AU',currency:'A$',iso:'AUD',tld:'.com.au'},
+    {re:/NZ\$\s*\d/i,country:'New Zealand',code:'NZ',currency:'NZ$',iso:'NZD',tld:'.nz'},
+    {re:/C\$\s*\d/i,country:'Canada',code:'CA',currency:'C$',iso:'CAD',tld:'.ca'},
+    {re:/£\s*\d/i,country:'United Kingdom',code:'GB',currency:'£',iso:'GBP',tld:'.co.uk'}
+  ];
+  for(const h of hints) if(h.re.test(raw)) return h;
+
+  const supplied=String(b.currency||'').trim();
+  const currencyOnly={
+    'N$':{currency:'N$',iso:'NAD'},'ZiG':{currency:'ZiG',iso:'ZWG'},'Kz':{currency:'Kz',iso:'AOA'},'₦':{currency:'₦',iso:'NGN'},
+    'GH₵':{currency:'GH₵',iso:'GHS'},'KSh':{currency:'KSh',iso:'KES'},'TSh':{currency:'TSh',iso:'TZS'},'AED':{currency:'AED',iso:'AED'},
+    'SAR':{currency:'SAR',iso:'SAR'},'₹':{currency:'₹',iso:'INR'},'RM':{currency:'RM',iso:'MYR'},'฿':{currency:'฿',iso:'THB'},
+    '₱':{currency:'₱',iso:'PHP'},'R$':{currency:'R$',iso:'BRL'},'MX$':{currency:'MX$',iso:'MXN'},'CHF':{currency:'CHF',iso:'CHF'},
+    'A$':{currency:'A$',iso:'AUD'},'NZ$':{currency:'NZ$',iso:'NZD'},'C$':{currency:'C$',iso:'CAD'},'£':{currency:'£',iso:'GBP'}
+  };
+  return currencyOnly[supplied]||null;
+}
+function localeFor(data){
+  const l=detectLocale(data)||{}, c=data.contact||{}, b=data.business||{};
+  return {
+    country:l.country||'',
+    countryCode:l.code||'',
+    currency:l.currency||String(b.currency||'')||'',
+    currencyISO:l.iso||'',
+    tld:l.tld||'.com',
+    location:String(c.city||c.address||l.country||'').trim()
+  };
+}
+function serviceToPricing(services,currency){
+  const cur=currency||'';
+  return services.slice(0,8).map((s,i)=>({
+    name:s.title||s.name||('Service '+(i+1)),
+    detail:String(s.duration||'Session')+(s.price!==undefined&&s.price!==''?' • '+cur+String(s.price):''),
+    badge:s.badge||s.category||'Signature Treatment'
+  }));
+}
 function buildBeauty(items){return (items||[]).map((s,i)=>({id:s.id||'b'+(i+1),name:s.name||s.title||'Beauty Service',price:Number(s.price)||0,duration:s.duration||'Session',description:s.description||'',category:'threading',popular:!!s.popular}))}
 function buildPackages(items){return (items||[]).map((p,i)=>({id:p.id||'p'+(i+1),title:p.title||p.name||`Package ${i+1}`,duration:p.duration||'Package',price:Number(p.price)||0,recommended:!!p.recommended,services:Array.isArray(p.services)?p.services:[],description:p.description||'',bgImage:p.bgImage||DEFAULT_FEATURE_IMAGES[i%DEFAULT_FEATURE_IMAGES.length]}))}
 function patchTemplate(data){
@@ -344,10 +438,10 @@ function patchTemplate(data){
   code=patchArray(code,'r_=({onSelectService:i})=>','r',serviceFallback,'service');
   code=replaceAllWithin(code,'u_=()=>','d_=({onOpenBooking:i})=>',[
     ['children:"Your Relaxation, Our Passion ♥"',`children:${q(trust.heading||b.tagline||'Your Wellness, Our Passion ♥')}`],
-    ['children:"Certified Traditional Thai Massage in Gordon\'s Bay"',`children:${q(trust.description||`${category||'Professional wellness'} in ${c.city||''}`.trim())}`],
+    ['children:"Certified Traditional Thai Massage in Gordon\\'s Bay"',`children:${q(trust.description||(`${category||'Professional wellness'}${locationLabel?' in '+locationLabel:''}`).trim())}`],
     ['children:"August 2026"',`children:${q(new Date().getFullYear().toString())}`],
     ['children:"THAI MASSAGE"',`children:${q((category||'WELLNESS').toUpperCase())}`],
-    ['children:"GORDON\'S BAY"',`children:${q((c.city||'YOUR CITY').toUpperCase())}`],
+    ['children:"GORDON\\'S BAY"',`children:${q(String(locationLabel||'').toUpperCase())}`],
     ['children:"Jadene"',`children:${q(therapist)}`]
   ]);
   code=patchArray(code,'d_=({onOpenBooking:i})=>','l',pricing,'json');
