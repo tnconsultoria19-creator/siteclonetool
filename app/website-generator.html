@@ -441,7 +441,7 @@ function patchTemplate(data){
     ['children:"Certified Traditional Thai Massage in Gordon\\'s Bay"',`children:${q(trust.description||(`${category||'Professional wellness'}${locationLabel?' in '+locationLabel:''}`).trim())}`],
     ['children:"August 2026"',`children:${q(new Date().getFullYear().toString())}`],
     ['children:"THAI MASSAGE"',`children:${q((category||'WELLNESS').toUpperCase())}`],
-    ['children:"GORDON\\'S BAY"',`children:${q(String(locationLabel||'').toUpperCase())}`],
+    ['children:"GORDON\'S BAY"',`children:${q(String(locationLabel||'').toUpperCase())}`],
     ['children:"Jadene"',`children:${q(therapist)}`]
   ]);
   code=patchArray(code,'d_=({onOpenBooking:i})=>','l',pricing,'json');
